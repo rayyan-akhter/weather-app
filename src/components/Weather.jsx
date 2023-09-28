@@ -72,8 +72,13 @@ export const WeatherApp = () => {
       <div className="weatherUpperContainer">
         <div className="header">
           <form></form>
-          <div className="iconContainer"
-       
+          <div
+            
+            style={{
+              position: "relative",
+              display: "flex",
+             alignItems:"center"
+            }}
           >
             <input
               className="search"
@@ -82,14 +87,19 @@ export const WeatherApp = () => {
               onChange={(e) => setLocation(e.target.value)}
               value={location}
             />
-            <FaLocationCrosshairs className="locationIcon"
-            
-            />
+            <FaLocationCrosshairs  style={{
+                position: "absolute",
+                right: 10,
+                color: "rgba(0,0,0,0.5)",
+                cursor: "pointer",
+                zIndex: 1,
+            }} />
           </div>
 
           <div className="btnContainer">
             {!loading ? (
-              <button className="searchBtnContainer"
+              <button
+                
                 style={{
                   border: "none",
                   background: "transparent",

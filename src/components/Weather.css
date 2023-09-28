@@ -174,15 +174,20 @@ main{
     z-index: -1;
     filter: blur(7px);
 }
-.locationIcon{
+/* .locationIcon{
   position: absolute;
   cursor: pointer;
   right: 10;
   color: rgba(0,0,0,0.5);
   z-index: -1;
-}
-.iconContainer{
+} */
+/* .iconContainer{
   position: relative;
   display: flex;
   align-items: center;
-}
+} */
+/* .searchBtnContainer{
+  border: none;
+  background: transparent;
+  place-items: center;
+} */
