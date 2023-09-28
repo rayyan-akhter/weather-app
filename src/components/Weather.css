@@ -1,0 +1,188 @@
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+main{
+  height: 100vh;
+  width: 100vw;
+  /* background-color: aqua; */
+  display: flex;
+  justify-content: center;
+  padding-top: 20vh;
+  position: relative;
+}
+.weatherUpperContainer{
+  /* background-color: rgb(230, 116, 9); */
+  background-color: rgb(6,102,174);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+  /* margin-left: 25%; */
+  /* margin-top: 5%; */
+  padding: 3%;
+  gap: 20px;
+  height: fit-content;
+  border-radius: 15px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.header{
+  display: flex;
+  gap: 10px;
+}
+.searchContainer{
+  width: 100%;
+}
+.search{
+  /* background-color: transparent; */
+  padding-left: 10px;
+  border: none;
+  height: 40px;
+  width: 300px;
+  border-radius: 5px;
+}
+.btnContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.searchBtn{
+  cursor: pointer;
+}
+.unitsContainer{
+  display: flex;
+  gap: 5px;
+  font-size: 25px;
+  color: white;
+  
+}
+.date{
+  color: white;
+}
+.locationName{
+  color: white;
+}
+.weatherInfo{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+.weatherInfoUpper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.weatherInfoBottom{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 90px;
+}
+.cloudImage{
+  height: 70px;
+  width: 70px;
+}
+.components{
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+.timeContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.imageContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.temperatureImage{
+  height: 70px;
+  width: 60px;
+  object-fit: contain;
+}
+.weatherTemperature{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  gap: 5px;
+  
+}
+.weatherComponents{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  
+
+}
+.temperature{
+  font-size: 45px;
+  color: white;
+}
+.weatherType{
+  color: white;
+  font-weight: bolder;
+}
+.weatherComponentsContainer{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.icon{
+  height: 20px;
+  width: 20px;
+}
+.iconContainer{
+  height: 20px;
+  width: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.componentsValue{
+  font-weight: bolder;
+}
+.weatherTemperatureLower{
+  display: flex;
+  gap: 2px;
+}
+.weatherTemperatureUpper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+
+.coverImage{
+  position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    filter: blur(7px);
+}
+.locationIcon{
+  position: absolute;
+  cursor: pointer;
+  right: 10;
+  color: rgba(0,0,0,0.5);
+  z-index: -1;
+}
+.iconContainer{
+  position: relative;
+  display: flex;
+  align-items: center;
+}
