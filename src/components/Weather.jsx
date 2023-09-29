@@ -1,23 +1,22 @@
-import React, { useEffect, useState } from "react";
-import clearsky from "../asset/clearSky.jpg";
 import axios from "axios";
-import clouds from "../asset/cloud.png";
-import "./Weather.css";
-import { IoIosSearch } from "react-icons/io";
-import { SiWindicss } from "react-icons/si";
-import { WiHumidity } from "react-icons/wi";
-import { PiWind } from "react-icons/pi";
+import React, { useRef, useState } from "react";
 import { FaLocationCrosshairs } from "react-icons/fa6";
+import { IoIosSearch } from "react-icons/io";
 import { LiaTemperatureHighSolid } from "react-icons/lia";
+import { PiWind } from "react-icons/pi";
+import { WiHumidity } from "react-icons/wi";
+import clearsky from "../asset/clearSky.jpg";
+import clouds from "../asset/cloud.png";
 import temperature from "../asset/temperature.png";
+import "./Weather.css";
 import Spinner from "./spinner";
 export const WeatherApp = () => {
   const [location, setLocation] = useState("");
-  // const [unit, setUnit] = useState("metric");
   const [weather, setWeather] = useState(null);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [showInCelcius, setShowIncelcius] = useState(false);
+  const inputRef = useRef(null)
 
   const apiKey = "4a37db8b9fa21fbeebb2679d7b480327";
   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}&units=imperial`;
@@ -28,10 +27,11 @@ export const WeatherApp = () => {
       .then((Response) => {
         setWeather(Response.data);
         setError("");
+        setLocation("")
       })
       .catch((error) => {
         setWeather(null);
-        setError("location not found");
+        setError("Location not found");
       })
       .finally(() => {
         setLoading(false);
@@ -53,10 +53,11 @@ export const WeatherApp = () => {
           .then((Response) => {
             setWeather(Response.data);
             setError("");
+            setLocation("")
           })
           .catch((error) => {
             setWeather(null);
-            setError("location not found");
+            setError("Location not found");
           })
           .finally(() => {
             setLoading(false);
@@ -66,12 +67,18 @@ export const WeatherApp = () => {
     });
   };
 
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      getWeather();
+    }
+  };
+  
   return (
     <main>
-      { <img src={clearsky} className="coverImage" alt="cover" />}
+       <img src={clearsky} className="coverImage" alt="cover" />
       <div className="weatherUpperContainer">
         <div className="header">
-          <form></form>
+      
           <div
             style={{
               position: "relative",
@@ -80,11 +87,13 @@ export const WeatherApp = () => {
             }}
           >
             <input
+            ref={inputRef}
               className="search"
               placeholder="Search location"
               type="text"
               onChange={(e) => setLocation(e.target.value)}
               value={location}
+              onKeyPress={handleKeyPress}
             />
             <FaLocationCrosshairs
               style={{
