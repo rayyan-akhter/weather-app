@@ -42,7 +42,7 @@ export const WeatherApp = () => {
     return converted.toFixed(2);
   };
 
-  useEffect(() => {
+  const locationNavigation = () => {
     navigator.geolocation.getCurrentPosition((position) => {
       const wetherApiwithLatandLong = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=imperial`;
 
@@ -64,20 +64,19 @@ export const WeatherApp = () => {
       };
       getWeather();
     });
-  }, []);
+  };
 
   return (
     <main>
-      {weather && <img src={clearsky} className="coverImage" alt="cover" />}
+      { <img src={clearsky} className="coverImage" alt="cover" />}
       <div className="weatherUpperContainer">
         <div className="header">
           <form></form>
           <div
-            
             style={{
               position: "relative",
               display: "flex",
-             alignItems:"center"
+              alignItems: "center",
             }}
           >
             <input
@@ -87,19 +86,21 @@ export const WeatherApp = () => {
               onChange={(e) => setLocation(e.target.value)}
               value={location}
             />
-            <FaLocationCrosshairs  style={{
+            <FaLocationCrosshairs
+              style={{
                 position: "absolute",
                 right: 10,
                 color: "rgba(0,0,0,0.5)",
                 cursor: "pointer",
                 zIndex: 1,
-            }} />
+              }}
+              onClick={locationNavigation}
+            />
           </div>
 
           <div className="btnContainer">
             {!loading ? (
               <button
-                
                 style={{
                   border: "none",
                   background: "transparent",
